@@ -20,13 +20,12 @@ app.post("/create-post", function(req, res){
 	//console.log(file.toString());
 	var returnedBlogText = JSON.stringify(parsedFile);
 		fs.writeFile(__dirname + '/data/posts.json', returnedBlogText, function (error){
-		//do something!
+		res.json(parsedFile);
 		});
 	});	
 	//console.log(req.body);
 	//console.log(req.fields);
 });
-
 
 app.get("/get-posts", function(req, res){
 		console.log('/get-posts');
